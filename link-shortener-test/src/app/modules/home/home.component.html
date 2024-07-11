@@ -1,0 +1,45 @@
+<h1>Link Shortener</h1>
+
+<div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-3">
+                    <label class="form-label">Enter URL</label>
+                    <input type="text" class="form-control" [(ngModel)]="link">
+                </div>
+                <div class="col-3">
+                    <button type="button" class="btn btn-primary" (click)="convertLink()">Get Short Link</button>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-6">
+                    <h6>Short Link: </h6>
+                    <h5>{{ shortLink }}</h5>
+                </div>
+            </div>
+        </div>
+      </div> 
+      
+      <hr>
+
+      <table class="table table-border table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>URL</th>
+            <th>Short Link</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let link of links; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ link.originalUrl }}</td>
+            <td>{{ link.shortUrl }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>
